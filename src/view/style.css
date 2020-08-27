@@ -1,4 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    /* background-color: black;
-    color: white; */
+
+}
+
+.menu {
+    width: 30%;
+    height: 99vh;
+    border: solid 4px black;
+    border-radius: 4px;
+    background-color: #E0E3E3;
+
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+
+
+.menu .topo {
+    color: #202363;
+    font-family: 'Berkshire Swash', cursive;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.menu .topo img {
+    width: 70px;
+    height: 70px;
+    align-self: center;
+    margin-left: 10px;
+    
+
+    border-radius: 42px;
+}
+
+.menu .hr-topo{
+    border: solid 4px #202363;
+    margin-top: 10px;
 }
