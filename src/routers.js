@@ -29,4 +29,8 @@ route.get('/consultarendereco/:id', controller.consultarEndereco);
 /*------------- Relefone-Pessoa --------------*/
 route.post('/novotelefone', controller.novoTelefone);
 
+route.put('/edittelefone/:id', controller.editTelefone);
+
+route.get('/concultatelefone/:id', controller.consultaTelefone);
+
 module.exports = route;

@@ -200,3 +200,40 @@ exports.novoTelefone = (req, res) => {
             res.json({ "Message: ": "Desculpe ocorreu um erro! " + error });
         })
 }
+
+exports.editTelefone = (req, res) => {
+    const id = req.params.id;
+
+    const url = `https://agendjango.herokuapp.com/api/telefones/${id}/`;
+
+    const editTelefone = {
+  
+        "id_pessoa": 20,
+        "numero": "99 1133-9595",
+        "tipo": 2
+
+ }
+
+    axios.put(url, editTelefone)
+        .then((response) => {
+            res.json({ "Message: ": "Registro editado com sucesso!" });
+        })
+        .catch((error) => {
+            res.json({ "Message": "Desculpe ocorreu um erro! " + error });
+        })
+
+}
+
+exports.consultaTelefone = (req, res) => {
+    const id = req.params.id;
+
+    const url = `https://agendjango.herokuapp.com/api/telefones/${id}/`;
+
+    axios.get(url)
+        .then((response) => {
+            res.send(response.data);
+        })
+        .catch((error) => {
+            res.json({ "Message: ": "Desculpe ocorreu um erro! " + error });
+        })
+}
