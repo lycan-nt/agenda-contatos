@@ -6,5 +6,9 @@ const route = express.Router();
 
 route.get('/', controller.home);
 
+route.get('/contatos', controller.contatos);
+
+route.get('/contato/', controller.contato);
+
 
 module.exports = route;
