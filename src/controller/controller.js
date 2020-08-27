@@ -73,9 +73,8 @@ exports.editContato = (req, res) => {
       };
 
       const editPessoa = {
-        id: 7,
-        nome: "Felipe",
-        sobrenome: "D. Santpos",
+        nome: "Marcella",
+        sobrenome: "D. Santos",
         nascimento: "1995-10-02",
         email: "felipedev@teste.com",
         foto: "",
@@ -114,13 +113,13 @@ exports.delete = (req, res) => {
 exports.inserirEndereco = (req, res) => {
     const url = `https://agendjango.herokuapp.com/api/enderecos/`;
 
-    const id = 15;
+    const id = 7;
 
     const endereco = {
         id_pessoa: id,
-        logradouro: "Teste POST",
-        numero: "10",
-        complemento: "POST 1",
+        logradouro: "Novo Endereço",
+        numero: "100",
+        complemento: "POST 2",
         bairro: "Brasil",
         cep: "450000",
         cidade: "Conquista",
@@ -144,7 +143,6 @@ exports.editEndereco = (req, res) => {
     const url = `https://agendjango.herokuapp.com/api/enderecos/${id}/`;
 
     const editEndereco = {
-        // id: id,
         id_pessoa: 15,
         logradouro: "Editando",
         numero: "1000",
@@ -164,4 +162,18 @@ exports.editEndereco = (req, res) => {
             res.json({ "Message: ": "Desculpe algo deu errado! " + error });
         })
 
+}
+
+exports.consultarEndereco = (req, res) => {
+    const id = req.params.id;
+
+    const url = `https://agendjango.herokuapp.com/api/enderecos/${id}`;
+
+    axios.get(url)
+        .then((response) => {
+            res.send(response.data);
+        })
+        .catch((error) => {
+            res.json({ "Message: ": "Desculpe algo deu errado! " + error});
+        })
 }

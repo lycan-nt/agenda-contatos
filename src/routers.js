@@ -24,4 +24,6 @@ route.post('/inserirendereco', controller.inserirEndereco)
 
 route.put('/editendereco/:id', controller.editEndereco);
 
+route.get('/consultarendereco/:id', controller.consultarEndereco);
+
 module.exports = route;
