@@ -16,10 +16,10 @@ exports.inserir = (req, res) => {
     const url = 'https://agendjango.herokuapp.com/api/pessoas/'
 
     const novoContato = {
-        nome: "Felipe",
-        sobrenome: "D. Santos",
-        nascimento: "1996-07-14",
-        email: "felipe@teste.com.br",
+        nome: "Rita",
+        sobrenome: "Lima",
+        nascimento: "1976-07-14",
+        email: "rita@teste.com.br",
         foto: "",
         telefones: [
             
@@ -29,7 +29,7 @@ exports.inserir = (req, res) => {
 
     axios.post(url, novoContato)
         .then((response) => {
-            res.json({ "Message": "Novo contato criado com sucesso!" });
+            res.send(response.data);
         })
         .catch((error) => {
             res.json({ "Message: ": "Desulpe algo deu errado" })
@@ -175,5 +175,28 @@ exports.consultarEndereco = (req, res) => {
         })
         .catch((error) => {
             res.json({ "Message: ": "Desculpe algo deu errado! " + error});
+        })
+}
+
+/*------------- Endereço-telefone --------------*/
+exports.novoTelefone = (req, res) => {
+     const id = 20;
+
+     const url = `https://agendjango.herokuapp.com/api/telefones/`
+
+     const novoTelefone = {
+  
+            "id_pessoa": id,
+            "numero": "77 1122-8585",
+            "tipo": 2
+    
+     }
+
+     axios.post(url, novoTelefone)
+        .then((response) => {
+            res.send(response.data);
+        })
+        .catch((error) => {
+            res.json({ "Message: ": "Desculpe ocorreu um erro! " + error });
         })
 }
