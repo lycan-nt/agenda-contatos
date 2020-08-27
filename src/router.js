@@ -10,6 +10,7 @@ route.get('/contatos', controllerPessoa.contatos);
 
 route.get('/contato/:id', controllerPessoa.contato);
 
+route.put('/editcontato/:id', controllerPessoa.editContato);
 
 
 module.exports = route;
