@@ -11,6 +11,30 @@ exports.home = (req, res) => {
     
 }
 
+exports.inserir = (req, res) => {
+    const url = 'https://agendjango.herokuapp.com/api/pessoas/'
+
+    const novoContato = {
+        nome: "Felipe",
+        sobrenome: "D. Santos",
+        nascimento: "1995-10-02",
+        email: "felipe@teste.com.br",
+        foto: "",
+        telefones: [
+            5
+        ],
+        enderecos: []
+    }
+
+    axios.post(url, novoContato)
+        .then((response) => {
+            res.json({ "Message": "Novo contato criado com sucesso!" });
+        })
+        .catch((error) => {
+            res.json({ "Message: ": "Desulpe algo deu errado" })
+        })
+}
+
 exports.contatos = (req, res) => {
     const url = 'https://agendjango.herokuapp.com/api/pessoas/'
 
@@ -63,11 +87,23 @@ exports.editContato = (req, res) => {
 
     axios.put(url, editPessoa)
         .then((response) => {
-            //console.log(response)
-
-           res.json({"Message": "OK"});
+           res.json({"Message": "Registro Alterado com sucesso!"});
         })
         .catch((error) => {
-            console.log('Vish: ' + error);
+            console.log('Um problema ocorreu: ' + error);
+        })
+}
+
+exports.delete = (req, res) => {
+    const id = req.params.id;
+
+    const url = `https://agendjango.herokuapp.com/api/pessoas/${id}`;
+
+    axios.delete(url)
+        .then((response) => {
+            res.json({ "Message: ": "Registro deletado com sucesso" });
+        })
+        .catch((error) => {
+            res.json({"Algo deu errado: ": error });
         })
 }
