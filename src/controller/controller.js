@@ -1,9 +1,8 @@
 const express = require('express');
-const bodyParse = require('body-parser')
-
-
+const bodyParse = require('body-parser');
 const axios = require('axios');
 const path = require('path');
+
 const { stringify } = require('querystring');
 
 exports.home = (req, res) => {
@@ -11,14 +10,16 @@ exports.home = (req, res) => {
     
 }
 
+/*------------- Pessoa --------------*/
+
 exports.inserir = (req, res) => {
     const url = 'https://agendjango.herokuapp.com/api/pessoas/'
 
     const novoContato = {
-        nome: "Felipe",
+        nome: "Marcella",
         sobrenome: "D. Santos",
-        nascimento: "1995-10-02",
-        email: "felipe@teste.com.br",
+        nascimento: "1996-07-14",
+        email: "marcella@teste.com.br",
         foto: "",
         telefones: [
             5
@@ -73,10 +74,10 @@ exports.editContato = (req, res) => {
 
       const editPessoa = {
         id: 7,
-        nome: "Tivic",
-        sobrenome: "Chagas",
-        nascimento: "1998-02-05",
-        email: "dwqdqw",
+        nome: "Felipe",
+        sobrenome: "D. Santpos",
+        nascimento: "1995-10-02",
+        email: "felipedev@teste.com",
         foto: "",
         telefones: [
             5
@@ -106,4 +107,33 @@ exports.delete = (req, res) => {
         .catch((error) => {
             res.json({"Algo deu errado: ": error });
         })
+}
+
+
+/*------------- Endereço-Pessoa --------------*/
+exports.inserirEndereco = (req, res) => {
+    const url = `https://agendjango.herokuapp.com/api/enderecos/`;
+
+    const id = 15;
+
+    const endereco = {
+        id_pessoa: id,
+        logradouro: "Teste POST",
+        numero: "10",
+        complemento: "POST 1",
+        bairro: "Brasil",
+        cep: "450000",
+        cidade: "Conquista",
+        uf: "BA",
+        tipo: "2"
+    }
+
+    axios.post(url, endereco)
+        .then((response) => {
+            res.json({"Message: ": "Endereço registrado"});
+        })
+        .catch((error) => {
+            res.json({"Message: ": "Desculpe algo deu errado!" + error});
+        })
+
 }

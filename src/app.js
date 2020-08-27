@@ -1,4 +1,4 @@
-const route = require('./router');
+const route = require('./routers');
 
 const express = require('express');
 const { urlencoded } = require('express');
