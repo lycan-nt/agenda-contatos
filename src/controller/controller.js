@@ -16,13 +16,13 @@ exports.inserir = (req, res) => {
     const url = 'https://agendjango.herokuapp.com/api/pessoas/'
 
     const novoContato = {
-        nome: "Marcella",
+        nome: "Felipe",
         sobrenome: "D. Santos",
         nascimento: "1996-07-14",
-        email: "marcella@teste.com.br",
+        email: "felipe@teste.com.br",
         foto: "",
         telefones: [
-            5
+            
         ],
         enderecos: []
     }
@@ -134,6 +134,34 @@ exports.inserirEndereco = (req, res) => {
         })
         .catch((error) => {
             res.json({"Message: ": "Desculpe algo deu errado!" + error});
+        })
+
+}
+
+exports.editEndereco = (req, res) => {
+    const id = req.params.id;
+
+    const url = `https://agendjango.herokuapp.com/api/enderecos/${id}/`;
+
+    const editEndereco = {
+        // id: id,
+        id_pessoa: 15,
+        logradouro: "Editando",
+        numero: "1000",
+        complemento: "Editando",
+        bairro: "Brasil",
+        cep: "450000",
+        cidade: "Conquista",
+        uf: "BA",
+        tipo: 2
+    }
+
+    axios.put(url, editEndereco)
+        .then((response) => {
+            res.json({ "Message: ":  "Registro alterado com sucesso" })
+        })
+        .catch((error) => {
+            res.json({ "Message: ": "Desculpe algo deu errado! " + error });
         })
 
 }

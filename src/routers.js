@@ -22,4 +22,6 @@ route.delete('/deletecontato/:id', controller.delete);
 /*------------- Endereço-Pessoa --------------*/
 route.post('/inserirendereco', controller.inserirEndereco)
 
+route.put('/editendereco/:id', controller.editEndereco);
+
 module.exports = route;
