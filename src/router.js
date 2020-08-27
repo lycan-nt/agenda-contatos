@@ -1,14 +1,15 @@
-const controller = require('./controller/controller');
+const controllerPessoa = require('./controller/controllerPessoa');
 
 const express = require('express');
 
 const route = express.Router();
 
-route.get('/', controller.home);
+route.get('/', controllerPessoa.home);
 
-route.get('/contatos', controller.contatos);
+route.get('/contatos', controllerPessoa.contatos);
 
-route.get('/contato/', controller.contato);
+route.get('/contato/:id', controllerPessoa.contato);
+
 
 
 module.exports = route;

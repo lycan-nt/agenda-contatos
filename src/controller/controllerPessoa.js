@@ -21,7 +21,7 @@ exports.contatos = (req, res) => {
 }
 
 exports.contato = (req, res) => {
-    const id = 2;
+    const id = req.params.id;
     const url = `https://agendjango.herokuapp.com/api/pessoas/${id}`;
 
     axios.get(url)
@@ -30,4 +30,8 @@ exports.contato = (req, res) => {
 
             res.send(response.data);
         })
+}
+
+exports.editContato = (req, res) => {
+
 }
