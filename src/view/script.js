@@ -33,13 +33,25 @@ btnSalvar.addEventListener('click', () => {
             return;
         }
 
+        if (nome == sobrenome)
+        {
+
+            inputNome.focus();
+
+            alert('O nome e o sobrenome não podem ser iguais.');
+
+            return;
+        }
+
         var atpos = email.indexOf("@");
         var dotpos = email.lastIndexOf(".");
 
-        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
-            alert("Por favor, digite um endereço de e-mail válido");
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) 
+        {
+            alert('Por favor, digite um endereço de e-mail válido');
 
             inputEmail.focus();
+
             return;
 
         }
