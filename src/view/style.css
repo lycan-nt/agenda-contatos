@@ -17,7 +17,7 @@ body {
     border: solid 4px black;
     border-radius: 4px;
     background-color: var(--primary-color);
-
+    margin-left: 0.1%;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -89,13 +89,13 @@ body {
 
 .content {
     border-top: solid 2px #e54e43;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
     display: none;
     position: absolute;
     height: 68vh;
     width: 30%;
     left: 0;
-    margin-left: 4px;
+    margin-left: 0.4%;
 }
 
 .rd_tabs:checked ~ .content {
@@ -122,5 +122,26 @@ body {
 
 .nav-cadastro .content article input#data{
     width: 150px;
+}
+
+.menu .buttons{
+    margin: 2px;
+    bottom: 0.3%;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 200px 200px;
+    height: 35px;
+}
+
+.menu .buttons button {
+    background-color: #202363;
+    border-radius: 4px;
+    color: white;
+}
+
+.menu .buttons button:hover {
+    background-color:#e54e43;
+    transition: 1s;
+    cursor: pointer;    
 }
 
