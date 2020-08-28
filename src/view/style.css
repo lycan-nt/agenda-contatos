@@ -61,11 +61,11 @@ body {
 
 .nav-cadastro ul li {
     float: left;
+    width: 33.33%;
 }
 
 .nav-cadastro label#label-tab{
-    width: 13.8vh;
-    padding: 20px;
+    padding: 18px;
     background-color: #202363;
 
     display: block;
@@ -75,7 +75,8 @@ body {
 }
 
 .nav-cadastro label.endereco {
-    border-right: solid 2px black;
+    border-right: solid 3px black;
+    border-left: solid 3px black;
 } 
 
 .rd_tabs:checked ~ label#label-tab {
