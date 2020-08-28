@@ -16,11 +16,11 @@ exports.inserir = (req, res) => {
     const url = 'https://agendjango.herokuapp.com/api/pessoas/'
 
     const novoContato = {
-        nome: "Rita",
-        sobrenome: "Lima",
-        nascimento: "1976-07-14",
-        email: "rita@teste.com.br",
-        foto: "",
+        nome: "Foto-Teste",
+        sobrenome: "SN",
+        nascimento: "2020-07-14",
+        email: "teste@teste.com.br",
+        foto: "C:\Users\SYSALA1\Pictures\Saved Pictures\1.jpeg",
         telefones: [
             
         ],

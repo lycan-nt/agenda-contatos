@@ -51,7 +51,7 @@ body {
 
 .nav-cadastro {
     width: 100%;
-    height: 200px;
+    height: 205px;
     background-color: var(--primary-color);
 }
 
@@ -67,7 +67,6 @@ body {
 .nav-cadastro label#label-tab{
     padding: 18px;
     background-color: #202363;
-
     display: block;
     color: var(--primary-color);
     cursor: pointer;
@@ -103,18 +102,18 @@ body {
 }
 
 .nav-cadastro .content article {
-    padding: 30px 5px;
+    padding: 60px 0 15px 10px;
     color: red;
 }
 
 .nav-cadastro .content article label {
     font-family: 'Teko', sans-serif;
     font-size: 25px;
-    color: black
+    color: black;
 }
 
 .nav-cadastro .content article input {
-    width: 275px;
+    width: 380px;
     height: 25px;
     border: solid 4px #202363;
     border-radius: 4px;

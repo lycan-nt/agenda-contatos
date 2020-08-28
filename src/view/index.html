@@ -25,57 +25,62 @@
             <hr class="hr-topo">
 
             <nav class="nav-cadastro">
-                <ul>
-                    <li>
-                        <input type="radio" name="tabs" class="rd_tabs" id="tb1" checked>
-                        <label id="label-tab" for="tb1">Cadastro</label>
-                        <div class="content">
-                            <article>
-                                <label>Nascimento</label> <br>
-                                <input id="data" type="date" name="data-nascimento" required> <br><br>
+                <form action="">
+                    <ul>
+                        <li>
+                            <input type="radio" name="tabs" class="rd_tabs" id="tb1" checked>
+                            <label id="label-tab" for="tb1">Cadastro</label>
+                            <div class="content">
+                                <article>
+                                    <label>Nascimento</label> <br>
+                                    <input id="data" type="date" name="data-nascimento" required> <br><br>
+    
+                                    <label>Name</label> <br>
+                                    <input type="text" name="name" required/> <br><br>
+    
+                                    <label>Sobrenome</label> <br>
+                                    <input type="text" name="sobrenome" required/> <br><br>
+    
+                                    <label>Email</label> <br>
+                                    <input type="email" name="email" required/>
+                                </article>
+                            </div>
+                        </li>
+    
+                        <li>
+                            <input type="radio" name="tabs" class="rd_tabs" id="tb2">
+                            <label class="endereco" id="label-tab" for="tb2">Endereço</label>
+                            <div class="content">
+                                <article>
+                                    <label>Endereço</label> <br>
+                                    <input type="text" name="name" />
+                                </article>
+                            </div>
+                        </li>
+    
+                        <li >
+                            <input type="radio" name="tabs" class="rd_tabs" id="tb3">
+                            <label id="label-tab" for="tb3">Telefônes</label>
+                            <div class="content">
+                                <article></article>
+                            </div>
+                        </li>
+    
+                        
+                    </ul>
 
-                                <label>Name</label> <br>
-                                <input type="text" name="name" required/> <br><br>
+                    <div class="buttons">
+                        <button class="novo" onclick="alert()">Novo</button>
+                        <button class="salvar">Salvar</button>
+        
+                    </div>
+                </form>
 
-                                <label>Sobrenome</label> <br>
-                                <input type="text" name="sobrenome" required> <br><br>
-
-                                <label>Email</label> <br>
-                                <input type="email" name="email" required>
-                            </article>
-                        </div>
-                    </li>
-
-                    <li>
-                        <input type="radio" name="tabs" class="rd_tabs" id="tb2">
-                        <label class="endereco" id="label-tab" for="tb2">Endereço</label>
-                        <div class="content">
-                            <article>
-                                <label>Endereço</label> <br>
-                                <input type="text" name="name" />
-                            </article>
-                        </div>
-                    </li>
-
-                    <li >
-                        <input type="radio" name="tabs" class="rd_tabs" id="tb3">
-                        <label id="label-tab" for="tb3">Telefônes</label>
-                        <div class="content">
-                            <article></article>
-                        </div>
-                    </li>
-
-                    
-                </ul>
 
                 
             </nav>
 
-            <div class="buttons">
-                <button class="novo">Novo</button>
-                <button class="salvar">Salvar</button>
 
-            </div>
             <!-- <h1 style="position: absolute; bottom: 0;">HERE</h1> -->
         </div>
      
