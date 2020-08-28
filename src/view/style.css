@@ -136,7 +136,9 @@ body {
     background-color: #202363;
     border-radius: 4px;
     color: white;
+    margin: 2px;
 }
+
 
 .menu .buttons button:hover {
     background-color:#e54e43;

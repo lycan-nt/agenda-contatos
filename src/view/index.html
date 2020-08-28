@@ -33,16 +33,16 @@
                             <div class="content">
                                 <article>
                                     <label>Nascimento</label> <br>
-                                    <input id="data" type="date" name="data-nascimento" required> <br><br>
+                                    <input id="data" type="date" name="data-nascimento" disabled="true" required> <br><br>
     
                                     <label>Name</label> <br>
-                                    <input type="text" name="name" required/> <br><br>
+                                    <input class="input-nome" type="text" name="name" disabled="true" required/> <br><br>
     
                                     <label>Sobrenome</label> <br>
-                                    <input type="text" name="sobrenome" required/> <br><br>
+                                    <input class="input-sobrenome" type="text" name="sobrenome" disabled="true" required/> <br><br>
     
                                     <label>Email</label> <br>
-                                    <input type="email" name="email" required/>
+                                    <input class="input-email" type="email" name="email" disabled="true" required/>
                                 </article>
                             </div>
                         </li>
@@ -66,13 +66,12 @@
                             </div>
                         </li>
     
-                        
                     </ul>
 
                     <div class="buttons">
-                        <button class="novo" onclick="alert()">Novo</button>
-                        <button class="salvar">Salvar</button>
-        
+                        <button class="novo">Novo</button>
+
+                        <button class="salvar" disabled="true">Salvar</button>
                     </div>
                 </form>
 
@@ -80,8 +79,6 @@
                 
             </nav>
 
-
-            <!-- <h1 style="position: absolute; bottom: 0;">HERE</h1> -->
         </div>
      
         
