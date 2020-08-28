@@ -13,6 +13,7 @@ body {
 
 .menu {
     width: 30%;
+    min-width: 260px;
     height: 99vh;
     border: solid 4px black;
     border-radius: 4px;
@@ -93,6 +94,7 @@ body {
     position: absolute;
     height: 68vh;
     width: 30%;
+    min-width: 261px;
     left: 0;
     margin-left: 0.4%;
 }
@@ -113,7 +115,8 @@ body {
 }
 
 .nav-cadastro .content article input {
-    width: 380px;
+    width: 95%;
+    min-width: 230px;
     height: 25px;
     border: solid 4px #202363;
     border-radius: 4px;
@@ -121,6 +124,7 @@ body {
 
 .nav-cadastro .content article input#data{
     width: 150px;
+    min-width: 150px;
 }
 
 .menu .buttons{
@@ -128,8 +132,10 @@ body {
     bottom: 0.3%;
     position: absolute;
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 100% 100%;
     height: 35px;
+    width: 14.8%;
+    min-width: 128px;
 }
 
 .menu .buttons button {
