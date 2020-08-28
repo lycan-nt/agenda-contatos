@@ -17,6 +17,7 @@ btnNovo.addEventListener('click', () => {
 
 //Persistindo os dados
 btnSalvar.addEventListener('click', () => {
+    event.preventDefault();
     const url = 'http://127.0.0.1:8080/novo';
 
     console.log(inputEmail.value)
