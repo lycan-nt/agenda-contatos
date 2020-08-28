@@ -1,3 +1,7 @@
+:root {
+    --primary-color: #E0E3E3;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -12,7 +16,7 @@ body {
     height: 99vh;
     border: solid 4px black;
     border-radius: 4px;
-    background-color: #E0E3E3;
+    background-color: var(--primary-color);
 
     display: flex;
     flex-direction: column;
@@ -41,6 +45,81 @@ body {
 }
 
 .menu .hr-topo{
-    border: solid 4px #202363;
+    border: solid 2px black;
     margin-top: 10px;
 }
+
+.nav-cadastro {
+    width: 100%;
+    height: 200px;
+    background-color: var(--primary-color);
+}
+
+.nav-cadastro ul {
+    list-style: none;
+}
+
+.nav-cadastro ul li {
+    float: left;
+}
+
+.nav-cadastro label#label-tab{
+    width: 13.8vh;
+    padding: 20px;
+    background-color: #202363;
+
+    display: block;
+    color: var(--primary-color);
+    cursor: pointer;
+    text-align: center;
+}
+
+.nav-cadastro label.endereco {
+    border-right: solid 2px black;
+} 
+
+.rd_tabs:checked ~ label#label-tab {
+    background-color: #e54e43;
+}
+
+.rd_tabs {
+    display: none;
+}
+
+.content {
+    border-top: solid 2px #e54e43;
+    background-color: blueviolet;
+    display: none;
+    position: absolute;
+    height: 68vh;
+    width: 30%;
+    left: 0;
+    margin-left: 4px;
+}
+
+.rd_tabs:checked ~ .content {
+    display: block;
+}
+
+.nav-cadastro .content article {
+    padding: 30px 5px;
+    color: red;
+}
+
+.nav-cadastro .content article label {
+    font-family: 'Teko', sans-serif;
+    font-size: 25px;
+    color: black
+}
+
+.nav-cadastro .content article input {
+    width: 275px;
+    height: 25px;
+    border: solid 4px #202363;
+    border-radius: 4px;
+}
+
+.nav-cadastro .content article input#data{
+    width: 150px;
+}
+
