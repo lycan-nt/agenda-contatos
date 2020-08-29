@@ -87,9 +87,55 @@ btnSalvar.addEventListener('click', () => {
     inputEmail.disabled = true;
     btnSalvar.disabled = true;
 
+
+
     }
     valida_form();
 
+});
 
+    //Gerando Estado e cidade via API
+    function UFs() {
+        const ufSelect = document.querySelector("select[name=uf]");
     
-})
+        fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+            .then( res => res.json() )
+            .then( states => {
+                for(const state of states) {
+                    ufSelect.innerHTML += `<option value="${state.id}">${state.sigla}</option>`
+                }
+               
+            } );
+    }
+    UFs();
+
+    function getCidades(event) {
+        const cidadeSelect = document.querySelector("select[name=cidade]");
+        const ufInput = document.querySelector("input[name=uf]");
+    
+        const ufValue = event.target.value;
+    
+        const index = event.target.selectedIndex;
+    
+        ufInput.value = event.target.options[index].text;
+    
+        const url = `https://servicodados.ibge.gov.br/api/v1/localidades/estados/${ufValue}/municipios`
+    
+        cidadeSelect.innerHTML = "<option value>Selecione a Cidade</option>";
+        cidadeSelect.disabled = true;
+    
+        fetch(url)
+            .then( res => res.json() )
+            .then( cidades => {
+                
+                for( const cidade of cidades) {
+                    cidadeSelect.innerHTML += `<option value="${cidade.nome}">${cidade.nome}</option>`
+                }
+    
+                cidadeSelect.disabled = false;
+    
+            })
+    }
+    
+    document.querySelector("select[name=uf]")
+        .addEventListener("change", getCidades);

@@ -124,14 +124,17 @@ body {
 }
 
 .nav-cadastro .content article input#data,
-input#cep,
-input#uf {
+input#cep
+{
     width: 150px;
     min-width: 150px;
 }
 
 
-.nav-cadastro .content article select.tipo {
+.nav-cadastro .content article
+select.tipo,
+select#uf,
+select#cidade{
     width: 150px;
     height: 25px;
 }

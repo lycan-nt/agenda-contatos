@@ -67,11 +67,16 @@
                                     <label>Bairro</label> <br>
                                     <input type="text" name="bairro" /> <br><br>
 
-                                    <label>Cidade</label> <br>
-                                    <input type="text" name="cidade" /> <br><br>
+                                    <label>UF</label> <br>
+                                    <select id="uf" name="uf" required>
+                                        <option value="">Selecione o Estado</option>
+                                    </select> <br> <br>
+                                    <input type="hidden" name="uf">
 
-                                    <label>Uf</label> <br>
-                                    <input id="uf" type="text" name="uf" /> <br><br>
+                                    <label>Cidade</label> <br>
+                                    <select id="cidade" name="cidade" disabled required>
+                                        <option value="">Selecione a Cidade</option>
+                                    </select> <br><br>
 
                                     <label>Tipo</label> <br>
                                     <select class="tipo">
