@@ -53,7 +53,6 @@ btnSalvar.addEventListener('click', () => {
             inputEmail.focus();
 
             return;
-
         }
         
     //Chamando o back end

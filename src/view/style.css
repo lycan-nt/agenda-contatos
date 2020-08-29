@@ -97,6 +97,7 @@ body {
     min-width: 261px;
     left: 0;
     margin-left: 0.4%;
+    overflow: auto;
 }
 
 .rd_tabs:checked ~ .content {
@@ -122,10 +123,19 @@ body {
     border-radius: 4px;
 }
 
-.nav-cadastro .content article input#data{
+.nav-cadastro .content article input#data,
+input#cep,
+input#uf {
     width: 150px;
     min-width: 150px;
 }
+
+
+.nav-cadastro .content article select.tipo {
+    width: 150px;
+    height: 25px;
+}
+
 
 .menu .buttons{
     margin: 2px;
