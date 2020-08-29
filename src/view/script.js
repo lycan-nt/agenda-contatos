@@ -112,8 +112,9 @@ btnSalvar.addEventListener('click', () => {
                 }
                 else
                 {
-                    alert("Algo errado");
-                    return
+                    alert("Antenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adcionar o endereço");
+                    
+                    return;
                 }
             }
             validaEndereco();
