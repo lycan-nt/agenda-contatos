@@ -130,7 +130,6 @@ input#cep
     min-width: 150px;
 }
 
-
 .nav-cadastro .content article
 select.tipo,
 select#uf,
@@ -147,7 +146,7 @@ select.tipoTelefone{
     position: absolute;
     display: grid;
     grid-template-columns: 100% 100%;
-    height: 35px;
+    height: 45px;
     width: 14.8%;
     min-width: 128px;
 }

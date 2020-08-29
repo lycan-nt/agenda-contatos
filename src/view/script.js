@@ -188,6 +188,9 @@ btnSalvar.addEventListener('click', () => {
     inputCidade.value = '';
     inputBairro.value = '';
 
+    inputNumeroTelefone.value = '';
+    inputTipoTelefone.value = '';
+
     inputNascimento.disabled = true;
     inputNome.disabled = true;
     inputSobreNome.disabled = true;
@@ -202,6 +205,9 @@ btnSalvar.addEventListener('click', () => {
     inputComplemento.disabled = true;
     inputUf.disabled = true;
     inputCidade.disabled = true;
+
+    inputNumeroTelefone.disabled = true;
+    inputTipoTelefone.disabled = true;
 
     tabCadastro.checked = true;
 
