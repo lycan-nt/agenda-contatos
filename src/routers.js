@@ -26,7 +26,7 @@ route.put('/editendereco/:id', controller.editEndereco);
 
 route.get('/consultarendereco/:id', controller.consultarEndereco);
 
-/*------------- Relefone-Pessoa --------------*/
+/*------------- Telefône-Pessoa --------------*/
 route.post('/novotelefone', controller.novoTelefone);
 
 route.put('/edittelefone/:id', controller.editTelefone);

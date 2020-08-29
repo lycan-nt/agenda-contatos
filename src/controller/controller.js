@@ -121,16 +121,6 @@ exports.inserirEndereco = (req, res) => {
         cidade: req.body.cidade,
         uf: req.body.uf,
         tipo: req.body.tipo
-
-        // id_pessoa: req.body.idPessoa,
-        // logradouro: req.body.logradouro,
-        // numero: req.body.numero,
-        // complemento: req.body.complemento,
-        // bairro: "teste",
-        // cep: "4500",
-        // cidade: "teste",
-        // uf: "AM",
-        // tipo: 1
     }
 
     axios.post(url, endereco)
@@ -184,17 +174,15 @@ exports.consultarEndereco = (req, res) => {
         })
 }
 
-/*------------- Endereço-telefone --------------*/
+/*------------- Pessoa-Telefône --------------*/
 exports.novoTelefone = (req, res) => {
-     const id = 20;
-
      const url = `https://agendjango.herokuapp.com/api/telefones/`
 
      const novoTelefone = {
   
-            "id_pessoa": id,
-            "numero": "77 1122-8585",
-            "tipo": 2
+            id_pessoa: req.body.idPessoa,
+            numero: req.body.numeroTelefone,
+            tipo: req.body.tipoTelefone
     
      }
 

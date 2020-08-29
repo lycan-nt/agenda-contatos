@@ -48,10 +48,10 @@ btnSalvar.addEventListener('click', () => {
 
     //Regras de validação
     function valida_form() {
-        var email = inputEmail.value;
-        var nome = inputNome.value;
-        var sobrenome = inputSobreNome.value;
-        var nascimento = inputNascimento.value;
+        const email = inputEmail.value;
+        const nome = inputNome.value;
+        const sobrenome = inputSobreNome.value;
+        const nascimento = inputNascimento.value;
 
         const logradouro = inputLogradouro.value;
         const numero = inputNumero.value;
@@ -61,6 +61,9 @@ btnSalvar.addEventListener('click', () => {
         const complemento = inputComplemento.value;
         const uf = inputUf.value;
         const cidade = inputCidade.value;
+
+        const numeroTelefone = inputNumeroTelefone.value;
+        const tipoTelefone = inputTipoTelefone.value;
 
         if (email == '' || nome == '' || sobrenome == '' || nascimento == '')
         {
@@ -107,11 +110,10 @@ btnSalvar.addEventListener('click', () => {
     axios.post(url, novoContato)
         .then((response) => {
             const contato = response.data;
+            const idPessoa = contato.id;
             
             //Verificado regras de endereço e salvando
-            const idPessoa = contato.id;
-
-            function validaEndereco() {
+            function validaEnderecoTelefone() {
 
                 if (logradouro != '' && numero != '' && bairro != '' && tipo != '')
                 {
@@ -142,8 +144,28 @@ btnSalvar.addEventListener('click', () => {
                     
                     return;
                 }
+
+                //Validando regra de validação de telefone e salvado
+                const novoTelefone = {
+                    idPessoa,
+                    numeroTelefone,
+                    tipoTelefone
+                }
+
+                if (numeroTelefone != '')
+                {
+                    const url = 'http://127.0.0.1:8080/novotelefone';
+
+                    axios.post(url, novoTelefone)
+                        .then((response) => {
+                            console.log({"Message: ": "Telefône registrado"});
+                        })
+                        .catch((error) => {
+                            console.log({ "Message: ": "Algo deu errado " + error });
+                        })
+                }
             }
-            validaEndereco();
+            validaEnderecoTelefone();
             
             alert("Novo contato criado com sucesso!");
         })
@@ -160,7 +182,6 @@ btnSalvar.addEventListener('click', () => {
 
     inputLogradouro.value = '';
     inputNumero.value = '';;
-    //inputTipo.value = '';
     inputCep.value = '';
     inputComplemento.value = '';
     inputUf.value = '';
