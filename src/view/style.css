@@ -8,17 +8,20 @@
 }
 
 body {
-
+    display: grid;
+    grid-template-columns: 30% 69%;
 }
 
+/*-----Menu principal-----*/
+
 .menu {
-    width: 30%;
+    width: 100%;
     min-width: 260px;
     height: 99vh;
     border: solid 4px black;
     border-radius: 4px;
     background-color: var(--primary-color);
-    margin-left: 0.1%;
+    margin-left: 0.2%;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -163,5 +166,16 @@ select.tipoTelefone{
     background-color:#e54e43;
     transition: 1s;
     cursor: pointer;    
+}
+
+/*-----Fim do menu principal-----*/
+
+/*-----Listagem-----*/
+.listagem {
+    height: 99vh;
+    width: 99%;
+    border: solid 4px black;
+    margin-left: 10px;
+    border-radius: 4px;
 }
 
