@@ -7,6 +7,8 @@ const inputNome = document.querySelector('.input-nome');
 const inputSobreNome = document.querySelector('.input-sobrenome');
 const inputEmail = document.querySelector('.input-email');
 
+
+
 btnNovo.addEventListener('click', () => {
     inputNascimento.disabled = false;
     inputNome.disabled = false;
@@ -70,7 +72,52 @@ btnSalvar.addEventListener('click', () => {
 
     axios.post(url, novoContato)
         .then((response) => {
-            console.log(response.data);
+            const contato = response.data;
+            
+            //Verificado regras de endereço e salvando
+            const idPessoa = contato.id;
+            const logradouro = document.querySelector("#logradouro").value;
+            const numero = document.querySelector("#numero").value;
+            const bairro = document.querySelector("#bairro").value;
+            const tipo = document.querySelector("select[name=tipo]").value;
+            const cep = document.querySelector("#cep").value;
+            const complemento = document.querySelector("#complemento").value;
+            const uf = document.querySelector("select[name=uf]").value;
+            const cidade = document.querySelector("select[name=cidade]").value;
+
+            function validaEndereco() {
+
+                if (logradouro != '' && numero != '' && bairro != '' && tipo != '')
+                {
+                    const url = "http://127.0.0.1:8080/inserirendereco";
+
+                    const novoEndereco = {
+                        idPessoa,
+                        logradouro,
+                        numero,
+                        bairro,
+                        tipo,
+                        cep,
+                        complemento,
+                        uf,
+                        cidade
+                    }
+                    axios.post(url, novoEndereco)
+                        .then((response) => {
+                            console.log({ "Message:": "Endereço registro!"});
+                        })
+                        .catch((error) => {
+                            console.log({ "Message: ": "Ocorreu um erro: " + error });
+                        })
+                }
+                else
+                {
+                    alert("Algo errado");
+                    return
+                }
+            }
+            validaEndereco();
+            
         })
         .catch((error) => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })
@@ -102,7 +149,7 @@ btnSalvar.addEventListener('click', () => {
             .then( res => res.json() )
             .then( states => {
                 for(const state of states) {
-                    ufSelect.innerHTML += `<option value="${state.id}">${state.sigla}</option>`
+                    ufSelect.innerHTML += `<option class=${state.sigla} value="${state.sigla}">${state.sigla}</option>`
                 }
                
             } );
@@ -133,6 +180,7 @@ btnSalvar.addEventListener('click', () => {
                 }
     
                 cidadeSelect.disabled = false;
+
     
             })
     }

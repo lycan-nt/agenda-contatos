@@ -111,18 +111,26 @@ exports.delete = (req, res) => {
 exports.inserirEndereco = (req, res) => {
     const url = `https://agendjango.herokuapp.com/api/enderecos/`;
 
-    const id = 7;
-
     const endereco = {
-        id_pessoa: id,
-        logradouro: "Novo Endereço",
-        numero: "100",
-        complemento: "POST 2",
-        bairro: "Brasil",
-        cep: "450000",
-        cidade: "Conquista",
-        uf: "BA",
-        tipo: "2"
+        id_pessoa: req.body.idPessoa,
+        logradouro: req.body.logradouro,
+        numero: req.body.numero,
+        complemento: req.body.complemento,
+        bairro: req.body.bairro,
+        cep: req.body.cep,
+        cidade: req.body.cidade,
+        uf: req.body.uf,
+        tipo: req.body.tipo
+
+        // id_pessoa: req.body.idPessoa,
+        // logradouro: req.body.logradouro,
+        // numero: req.body.numero,
+        // complemento: req.body.complemento,
+        // bairro: "teste",
+        // cep: "4500",
+        // cidade: "teste",
+        // uf: "AM",
+        // tipo: 1
     }
 
     axios.post(url, endereco)
