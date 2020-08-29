@@ -1,4 +1,5 @@
 //Habilitando Cadastro
+const tabCadastro = document.querySelector("#tb1");
 const btnNovo = document.querySelector(".novo");
 const btnSalvar = document.querySelector(".salvar");
 
@@ -7,7 +8,14 @@ const inputNome = document.querySelector('.input-nome');
 const inputSobreNome = document.querySelector('.input-sobrenome');
 const inputEmail = document.querySelector('.input-email');
 
-
+const inputLogradouro = document.querySelector("#logradouro");
+const inputNumero = document.querySelector("#numero");
+const inputBairro = document.querySelector("#bairro");
+const inputTipo = document.querySelector("select[name=tipo]");
+const inputCep = document.querySelector("#cep");
+const inputComplemento = document.querySelector("#complemento");
+const inputUf = document.querySelector("select[name=uf]");
+const inputCidade = document.querySelector("select[name=cidade]");
 
 btnNovo.addEventListener('click', () => {
     inputNascimento.disabled = false;
@@ -15,6 +23,14 @@ btnNovo.addEventListener('click', () => {
     inputSobreNome.disabled = false;
     inputEmail.disabled = false;
     btnSalvar.disabled = false;
+
+    inputLogradouro.disabled = false;
+    inputNumero.disabled = false;
+    inputBairro.disabled = false;
+    inputTipo.disabled = false;
+    inputCep.disabled = false;
+    inputComplemento.disabled = false;
+    inputUf.disabled = false;
 })
 
 //Persistindo os dados
@@ -27,6 +43,15 @@ btnSalvar.addEventListener('click', () => {
         var nome = inputNome.value;
         var sobrenome = inputSobreNome.value;
         var nascimento = inputNascimento.value;
+
+        const logradouro = inputLogradouro.value;
+        const numero = inputNumero.value;
+        const bairro = inputBairro.value;
+        const tipo = inputTipo.value;
+        const cep = inputCep.value;
+        const complemento = inputComplemento.value;
+        const uf = inputUf.value;
+        const cidade = inputCidade.value;
 
         if (email == '' || nome == '' || sobrenome == '' || nascimento == '')
         {
@@ -76,14 +101,6 @@ btnSalvar.addEventListener('click', () => {
             
             //Verificado regras de endereço e salvando
             const idPessoa = contato.id;
-            const logradouro = document.querySelector("#logradouro").value;
-            const numero = document.querySelector("#numero").value;
-            const bairro = document.querySelector("#bairro").value;
-            const tipo = document.querySelector("select[name=tipo]").value;
-            const cep = document.querySelector("#cep").value;
-            const complemento = document.querySelector("#complemento").value;
-            const uf = document.querySelector("select[name=uf]").value;
-            const cidade = document.querySelector("select[name=cidade]").value;
 
             function validaEndereco() {
 
@@ -112,22 +129,34 @@ btnSalvar.addEventListener('click', () => {
                 }
                 else
                 {
-                    alert("Antenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adcionar o endereço");
+                    alert("Antenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adicionar o endereço");
                     
                     return;
                 }
             }
             validaEndereco();
             
+            alert("Novo contato criado com sucesso!");
         })
         .catch((error) => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })
+           alert("Desculpe algo deu errado, por favor tente novamente.");
         });
 
+    //Limpando e desabilitando campos
     inputNome.value = ''
     inputSobreNome.value = ''
     inputNascimento.value = ''
     inputEmail.value = ''
+
+    inputLogradouro.value = '';
+    inputNumero.value = '';;
+    //inputTipo.value = '';
+    inputCep.value = '';
+    inputComplemento.value = '';
+    inputUf.value = '';
+    inputCidade.value = '';
+    inputBairro.value = '';
 
     inputNascimento.disabled = true;
     inputNome.disabled = true;
@@ -135,7 +164,16 @@ btnSalvar.addEventListener('click', () => {
     inputEmail.disabled = true;
     btnSalvar.disabled = true;
 
+    inputLogradouro.disabled = true;
+    inputNumero.disabled = true;
+    inputBairro.disabled = true;
+    inputTipo.disabled = true;
+    inputCep.disabled = true;
+    inputComplemento.disabled = true;
+    inputUf.disabled = true;
+    inputCidade.disabled = true;
 
+    tabCadastro.checked = true;
 
     }
     valida_form();
