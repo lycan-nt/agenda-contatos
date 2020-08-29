@@ -1,13 +1,15 @@
-//Habilitando Cadastro
+//Recuperando elementos da DOM & Habilitando Cadastros
 const tabCadastro = document.querySelector("#tb1");
 const btnNovo = document.querySelector(".novo");
 const btnSalvar = document.querySelector(".salvar");
 
+//Pessoa
 const inputNascimento = document.querySelector('#data');
 const inputNome = document.querySelector('.input-nome');
 const inputSobreNome = document.querySelector('.input-sobrenome');
 const inputEmail = document.querySelector('.input-email');
 
+//Endereço
 const inputLogradouro = document.querySelector("#logradouro");
 const inputNumero = document.querySelector("#numero");
 const inputBairro = document.querySelector("#bairro");
@@ -16,6 +18,10 @@ const inputCep = document.querySelector("#cep");
 const inputComplemento = document.querySelector("#complemento");
 const inputUf = document.querySelector("select[name=uf]");
 const inputCidade = document.querySelector("select[name=cidade]");
+
+//Telefone
+const inputNumeroTelefone = document.querySelector("#numeroTelefone");
+const inputTipoTelefone = document.querySelector("select[name=tipoTelefone]");
 
 btnNovo.addEventListener('click', () => {
     inputNascimento.disabled = false;
@@ -31,6 +37,9 @@ btnNovo.addEventListener('click', () => {
     inputCep.disabled = false;
     inputComplemento.disabled = false;
     inputUf.disabled = false;
+
+    inputNumeroTelefone.disabled = false;
+    inputTipoTelefone.disabled = false;
 })
 
 //Persistindo os dados

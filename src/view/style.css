@@ -134,7 +134,8 @@ input#cep
 .nav-cadastro .content article
 select.tipo,
 select#uf,
-select#cidade{
+select#cidade, 
+select.tipoTelefone{
     width: 150px;
     height: 25px;
 }
