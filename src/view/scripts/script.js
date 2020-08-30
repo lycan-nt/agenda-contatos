@@ -1,8 +1,3 @@
-//Teste Data
-var data = new Date();
-console.log(data);
-
-console.log(data.toISOString().substr(0, 10).split('-').reverse().join('/'));
 
 //Recuperando elementos da DOM & Habilitando Cadastros
 const tabCadastro = document.querySelector("#tb1");

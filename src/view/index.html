@@ -7,7 +7,8 @@
         <link rel='stylesheet' type='text/css' href='bootstrap/css/bootstrap.min.css'>
         <link href="https://fonts.googleapis.com/css2?family=Teko&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="./styles/style.css">
+        <link rel="stylesheet" type="text/css" href="./styles/estiloNovosNumeros.css">
 
         <title>Contatos</title>
     </head>
@@ -93,7 +94,7 @@
                             <input type="radio" name="tabs" class="rd_tabs" id="tb3">
                             <label id="label-tab" for="tb3">Telefônes</label>
                             <div class="content">
-                                <article>
+                                <article class="telefones">
                                     <label>Numero</label> <br>
                                     <input id="numeroTelefone" type="text" name="numeroTelefone" disabled="true" required /> <br><br>
                                     
@@ -102,8 +103,14 @@
                                         <option selected value = 1>Celular</option>
                                         <option value = 2>Comercial</option>
                                         <option value = 3>Fax</option>
-                                        <option value = 4>Recidencial</option>
-                                    </select>
+                                        <option value = 4>Residencial</option>
+                                    </select> <br><br>
+
+                                    <div class="novos-numeros">
+                                       
+                                    </div>
+
+                                    <button class="adicionarmais">Adicionar mais numeros</button>
                                 </article>
                             </div>
                         </li>
@@ -150,9 +157,9 @@
      
         
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script type="module" src="./scripts/script.js"></script>
-        <script type="module" src="./scripts/tabela.js"></script>
-
+        <script src="./scripts/script.js"></script>
+        <script src="./scripts/tabela.js"></script>
+        <script src="./scripts/buttons.js"></script>
     </body>
 
 </html>

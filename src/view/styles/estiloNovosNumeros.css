@@ -1,0 +1,15 @@
+.hr-numeros {
+    background-color: red;
+    margin-bottom: 5px;
+    width: 100%;
+    padding: 0;
+}
+
+.input-numero{
+    margin-bottom: 10px;
+}
+
+.label-tipo {
+    margin-right: 10px;
+    font-size: 25px;
+}
