@@ -3,6 +3,8 @@
 const tabCadastro = document.querySelector("#tb1");
 const btnNovo = document.querySelector(".novo");
 const btnSalvar = document.querySelector(".salvar");
+// const buttonAdicionarTelefone = document.querySelector('.adicionarmais');
+
 
 //Pessoa
 const inputNascimento = document.querySelector('#data');
@@ -30,6 +32,7 @@ btnNovo.addEventListener('click', () => {
     inputSobreNome.disabled = false;
     inputEmail.disabled = false;
     btnSalvar.disabled = false;
+    buttonAdicionarTelefone.disabled = false;
 
     inputLogradouro.disabled = false;
     inputNumero.disabled = false;
@@ -246,6 +249,7 @@ btnSalvar.addEventListener('click', () => {
     inputSobreNome.disabled = true;
     inputEmail.disabled = true;
     btnSalvar.disabled = true;
+    buttonAdicionarTelefone.disabled = true;
 
     inputLogradouro.disabled = true;
     inputNumero.disabled = true;
