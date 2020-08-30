@@ -125,7 +125,7 @@ btnSalvar.addEventListener('click', () => {
                 return await axios.get(url)
                     .then(({ data }) => {
                        const dataNascimento = data[3].nascimento;
-                        alert("Data de Nascimento: " + dataNascimento.toISOString().substr(0, 10).split('-').reverse().join('/'))
+                       console.log("Data de Nascimento: " + dataNascimento.substr(0, 10).split('-').reverse().join('/'))
 
                         const popular = () => {
                             tBody.innerHTML = '' ;
@@ -134,7 +134,7 @@ btnSalvar.addEventListener('click', () => {
                                     "<td>" + data[i].id + "</td>" +
                                     "<td>" + data[i].nome + "</td>" +
                                     "<td>" + data[i].sobrenome + "</td>" +
-                                    "<td>" + data[i].nascimento + "</td>" +
+                                    "<td>" + data[i].nascimento.substr(0, 10).split('-').reverse().join('/') + "</td>" +
                                     "<td>" + data[i].email + "</td>" +
                                     "</tr>"
                                     
