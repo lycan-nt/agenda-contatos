@@ -209,6 +209,8 @@ select.tipoTelefone{
     padding-right: 100px;
     background-color: #202363;
     color: white;
+    position: sticky;
+    top: 0;
 }
 
 .listagem .campos-tabela .table-hover > tbody > tr:hover {
@@ -216,4 +218,15 @@ select.tipoTelefone{
     color: white;
     cursor: pointer;
 } 
+
+.listagem .menu-listagem {
+   display: flex;
+}
+.listagem .menu-listagem input {
+    height: 60%;
+    width: 90%;
+    align-self: center;
+    margin: auto;
+    border-radius: 4px;
+}
 

@@ -1,3 +1,9 @@
+//Teste Data
+var data = new Date();
+console.log(data);
+
+console.log(data.toISOString().substr(0, 10).split('-').reverse().join('/'));
+
 //Recuperando elementos da DOM & Habilitando Cadastros
 const tabCadastro = document.querySelector("#tb1");
 const btnNovo = document.querySelector(".novo");
@@ -109,6 +115,47 @@ btnSalvar.addEventListener('click', () => {
 
     axios.post(url, novoContato)
         .then((response) => {
+
+            /* ----------Script para recuperar dados & popular tabela & fazer consulta ---------- */
+            const tBody = document.querySelector('tbody');
+
+            const recuperaDados = async () => {
+                const url = 'http://127.0.0.1:8080/contatos/';
+
+                return await axios.get(url)
+                    .then(({ data }) => {
+                       const dataNascimento = data[3].nascimento;
+                        alert("Data de Nascimento: " + dataNascimento.toISOString().substr(0, 10).split('-').reverse().join('/'))
+
+                        const popular = () => {
+                            tBody.innerHTML = '' ;
+                            for (var i = 0; i < data.length; i++) {
+                                var tr = "<tr>" +
+                                    "<td>" + data[i].id + "</td>" +
+                                    "<td>" + data[i].nome + "</td>" +
+                                    "<td>" + data[i].sobrenome + "</td>" +
+                                    "<td>" + data[i].nascimento + "</td>" +
+                                    "<td>" + data[i].email + "</td>" +
+                                    "</tr>"
+                                    
+                                
+                                     tBody.innerHTML += tr;
+
+                            }
+
+                            var tr = tBody.childNodes;
+                        }
+                        popular();
+
+                    })
+                    .catch((error) => {
+                        console.log("Falha ao carregar os dados");
+                    })
+            }
+            const dados = recuperaDados();
+
+            /*Fim do script para recuperar dados e acrescentar na tabela*/
+
             const contato = response.data;
             const idPessoa = contato.id;
             
@@ -140,9 +187,17 @@ btnSalvar.addEventListener('click', () => {
                 }
                 else
                 {
-                    alert("Antenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adicionar o endereço");
-                    
-                    return;
+                    if(cep != '' || complemento != '' || uf != '' || cidade != '')
+                    {
+                        alert("Atenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adicionar o endereço");
+                        return;
+                    }
+                    else if ((cep == '' || complemento == '' || uf == '' || cidade == '') && (numeroTelefone = ''))
+                    {
+                        alert("Atenção nenhum endereço e nem telefône informados! caso deseje podera apos salvar, consultar e alterar o contato para adicionar as iformações");
+                        return;
+                    }
+
                 }
 
                 //Validando regra de validação de telefone e salvado
@@ -162,6 +217,7 @@ btnSalvar.addEventListener('click', () => {
                         })
                         .catch((error) => {
                             console.log({ "Message: ": "Algo deu errado " + error });
+                            alert("Telefône")
                         })
                 }
             }
@@ -171,7 +227,6 @@ btnSalvar.addEventListener('click', () => {
         })
         .catch((error) => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })
-           alert("Desculpe algo deu errado, por favor tente novamente.");
         });
 
     //Limpando e desabilitando campos
