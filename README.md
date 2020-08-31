@@ -24,11 +24,13 @@
       Tentei usar o maximo da arquitetura MVC e clean code
       Projeto criando pensando na armonia visual e responsividade com as diferentes telas deskitops 
  
- ## OBS: Infelizmente não consegui a tempo implementar a edição e exclusão de contato 
- ##      assim como tambem não tive tempo de implantar um versão para aparelho movel
+ ## OBS: 
+    Infelizmente não consegui a tempo implementar a edição e exclusão de contato 
+    assim como tambem não tive tempo de implantar um versão para aparelho movel
  
  
- ## Desenvolvido por Felipe D. Santos
+ ## Desenvolvido por 
+    Felipe D. Santos
  
  ## Agradecimentos
       Meus agradecimentos a Tivic e equipe pela oportunidade de participar do processo seletivo
