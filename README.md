@@ -25,8 +25,10 @@
       Projeto criando pensando na armonia visual e responsividade com as diferentes telas deskitops 
  
  ## OBS: 
-    Infelizmente não consegui a tempo implementar a edição e exclusão de contato 
-    assim como tambem não tive tempo de implantar um versão para aparelho movel
+    Infelizmente não consegui a tempo implementar a edição e exclusão de contato toda a parte de CRUD funciona
+    no back end da aplicação porem falto a implementação dessa parte no front
+    assim como tambem não tive tempo de implantar um versão para aparelho movel 
+    
  
  
  ## Desenvolvido por 
