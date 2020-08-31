@@ -1,11 +1,10 @@
 
 /*Adicionar campos para inserir mais telefônes*/
 const buttonAdicionarTelefone = document.querySelector('.adicionarmais');
+const novosNumeros = document.querySelector('.novos-numeros');
 
 buttonAdicionarTelefone.addEventListener('click', () => {
     event.preventDefault();
-
-    const novosNumeros = document.querySelector('.novos-numeros');
 
     const hr = document.createElement('hr');
     hr.setAttribute('class', 'hr-numeros');
@@ -60,11 +59,9 @@ buttonAdicionarTelefone.addEventListener('click', () => {
 
 });
 
-/*Fim mais telefones*/
+/*Fim mais telefones campos*/
 
-
-    //TESTE ADD-----
-
+//Criando objeto com os dados de telefone
 const addTelefone = (idPessoa) => {
     const addNumber = document.querySelectorAll('#numeroTelefone');
     const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
@@ -88,15 +85,9 @@ const addTelefone = (idPessoa) => {
     return arrTelefones;
 }
 
-// const dadosTelefones = addTelefone();
 
-// for(var i = 0; i < dadosTelefones.length; i++)
-// {
-//     if (dadosTelefones[i].numero == dadosTelefones[i + 1].numero)
-//     {
-//         alert("Atenção os numeros de telefône não podem se repetir");
-//     }
-
-//     alert("Ta tudo certo!");
-// }
+//Limpar campos de telefone
+const limparNumeros = () => {
+    novosNumeros.innerHTML = ''
+}
 

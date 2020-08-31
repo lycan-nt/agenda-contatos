@@ -114,44 +114,44 @@ btnSalvar.addEventListener('click', () => {
     axios.post(url, novoContato)
         .then((response) => {
 
-                    /* ----------Script para recuperar dados & popular tabela & fazer consulta ---------- */
-                    const tBody = document.querySelector('tbody');
+            /* ----------Script para recuperar dados & popular tabela & fazer consulta ---------- */
+            const tBody = document.querySelector('tbody');
 
-                    const recuperaDados = async () => {
-                        const url = 'http://127.0.0.1:8080/contatos/';
-        
-                        return await axios.get(url)
-                            .then(({ data }) => {
-                               const dataNascimento = data[3].nascimento;
-        
-                                const popular = () => {
-                                    tBody.innerHTML = '' ;
-                                    for (var i = 0; i < data.length; i++) {
-                                        var tr = "<tr>" +
-                                            "<td>" + data[i].id + "</td>" +
-                                            "<td>" + data[i].nome + "</td>" +
-                                            "<td>" + data[i].sobrenome + "</td>" +
-                                            "<td>" + data[i].nascimento.substr(0, 10).split('-').reverse().join('/') + "</td>" +
-                                            "<td>" + data[i].email + "</td>" +
-                                            "</tr>"
-                                            
-                                        
-                                             tBody.innerHTML += tr;
-        
-                                    }
-        
-                                    var tr = tBody.childNodes;
-                                }
-                                popular();
-        
-                            })
-                            .catch((error) => {
-                                console.log("Falha ao carregar os dados");
-                            })
-                    }
-                    const dados = recuperaDados();
-        
-                    /*Fim do script para recuperar dados e acrescentar na tabela*/
+            const recuperaDados = async () => {
+                const url = 'http://127.0.0.1:8080/contatos/';
+
+                return await axios.get(url)
+                    .then(({ data }) => {
+                       const dataNascimento = data[3].nascimento;
+
+                        const popular = () => {
+                            tBody.innerHTML = '' ;
+                            for (var i = 0; i < data.length; i++) {
+                                var tr = "<tr>" +
+                                    "<td>" + data[i].id + "</td>" +
+                                    "<td>" + data[i].nome + "</td>" +
+                                    "<td>" + data[i].sobrenome + "</td>" +
+                                    "<td>" + data[i].nascimento.substr(0, 10).split('-').reverse().join('/') + "</td>" +
+                                    "<td>" + data[i].email + "</td>" +
+                                    "</tr>"
+                                    
+                                
+                                     tBody.innerHTML += tr;
+
+                            }
+
+                            var tr = tBody.childNodes;
+                        }
+                        popular();
+
+                    })
+                    .catch((error) => {
+                        console.log("Falha ao carregar os dados");
+                    })
+            }
+            const dados = recuperaDados();
+
+            /*Fim do script para recuperar dados e acrescentar na tabela*/
 
             const contato = response.data;
             const idPessoa = contato.id;
@@ -243,7 +243,8 @@ btnSalvar.addEventListener('click', () => {
                                     }
             
                                     console.log(`Aqui os dados tratados: ${dadosTelefonesUnicos}`);
-                                    console.log('Fim do telefone')
+                                    console.log('Fim do telefone');
+                                    limparNumeros();
                                     recuperaDados();
                                     return;
                                 }
@@ -265,7 +266,7 @@ btnSalvar.addEventListener('click', () => {
                                 alert("Telefône")
                             }) 
 
-                            recuperaDados();
+                            recuperaDados()
                     }
                     /*END TESTE*/
                     // const url = 'http://127.0.0.1:8080/novotelefone';
@@ -287,8 +288,6 @@ btnSalvar.addEventListener('click', () => {
         .catch((error) => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })
         });
-
-
 
     //Limpando e desabilitando campos
     inputNome.value = ''
