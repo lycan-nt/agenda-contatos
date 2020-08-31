@@ -65,7 +65,7 @@ buttonAdicionarTelefone.addEventListener('click', () => {
 
     //TESTE ADD-----
 
-const addTelefone = () => {
+const addTelefone = (idPessoa) => {
     const addNumber = document.querySelectorAll('#numeroTelefone');
     const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
 
@@ -78,9 +78,9 @@ const addTelefone = () => {
     {
 
         arrTelefones.push({
-            // idContato: idContato,
-            numero: arrNumero[i].value,
-            tipo: arrTipo[i].value
+            idPessoa: idPessoa,
+            numeroTelefone: arrNumero[i].value,
+            tipoTelefone: arrTipo[i].value
         })
         
     }
