@@ -4,18 +4,11 @@
 <img src='https://github.com/lycan-nt/agenda-contatos/blob/master/Agenda-Tivicpng'>
 
 ## Algumas das funcionalidade no momento
-    - Cadastra contatos com todos os dados e com diversas regras de validação para evitar erros por parte do usuario
-    
-    - Na parte de cadastro de Endereço o campo UF e Cidade se comunicam com um API do IBGE fazendo com que o usuario 
-      não precise digitar esses campos e possa selecionalos.
-      
-    - No campo de cadastro de telefone existe um botão adcionar mais numeros que faz uma manipulação da dom criando novos
-       campos de numeros para preencher no momento de salvar os dados o sistema verifica se o numero de telefône esta repedido
-       avisa e remove os repetidos cadastrando apenas os corretos
-       
-    - Todos os contatos aparecem em uma tabela listada do lado direito e ao adcionar um novo contato ele e listado tambem
-    
-    - Existe um capo de busca onde e possiveu digitar o nome e ele sera filtrado
+    - Cadastrar contatos com todos os dados e com diversas regras de validação para evitar erros por parte do usuário
+    - Na parte de cadastro de Endereço o campo UF e Cidade se comunicam com um API do IBGE fazendo com que o usuário não precise digitar esses campos e possa           selecioná los. 
+    - No campo de cadastro de telefone existe um botão adicionar mais números que faz uma manipulação da dom criando novos campos de números para preencher e no          momento de salvar os dados o sistema verifica se o número de telefone está repetido avisa e remove os repetidos cadastrando apenas os corretos 
+    - Todos os contatos aparecem em uma tabela listada do lado direito e ao adicionar um novo contato ele e listado também
+    - Existe um campo de busca onde e possível digitar o nome e ele será filtrado
     
 ## Como testar
       Faça o download do projeto
