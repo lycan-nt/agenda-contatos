@@ -211,24 +211,32 @@ btnSalvar.addEventListener('click', () => {
                        const dadosTelefones = addTelefone();
                        dadosTelefones[0].numero = numeroTelefone;
                        dadosTelefones[0].tipo = tipoTelefone;
-                        console.log(dadosTelefones);
-                        console.log(dadosTelefones[0]);
-                        console.log(dadosTelefones[1]);
 
                         for (var i = 0; i < dadosTelefones.length; i++) {
 
-                            if (dadosTelefones[i].numero == dadosTelefones[i + 1].numero) {
-                                alert("Atenção os numeros de telefône não podem se repetir, os numeros repetido serão removidos.");
+                            for (var j = 0; j < dadosTelefones.length; j++)
+                            {
+                                if (j == dadosTelefones.length);
+                                {
+                                    const dadosTelefonesUnicos = dadosTelefones.filter(function(este, i) {
+                                        return dadosTelefones.indexOf(este) === i;
+                                    });
+            
+                                    console.log(`Aqui os dados tratados: ${dadosTelefonesUnicos}`);
+                                    console.log('Fim do telefone')
+                                   return;
+                                }
 
-                                
+                                if (dadosTelefones[i].numero == dadosTelefones[j + 1].numero) 
+                                {
+                                    alert("Atenção! os numeros de telefône não podem se repetir, os numeros repetido serão removidos.");
+                                    
+                                }
 
-                                return
                             }
 
-                            alert("Ta tudo certo!");
                         }
 
-                       return;
                     }
                     else
                     {
