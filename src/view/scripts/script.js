@@ -123,7 +123,6 @@ btnSalvar.addEventListener('click', () => {
                 return await axios.get(url)
                     .then(({ data }) => {
                        const dataNascimento = data[3].nascimento;
-                       console.log("Data de Nascimento: " + dataNascimento.substr(0, 10).split('-').reverse().join('/'))
 
                         const popular = () => {
                             tBody.innerHTML = '' ;
@@ -190,11 +189,6 @@ btnSalvar.addEventListener('click', () => {
                         alert("Atenção!! O endereço do contato só sera salvo caso os campos (Logradouro / Numero/ Bairro) estejam preenchidos, você podera consultar e alterar o cadastro posteriormente para adicionar o endereço");
                         return;
                     }
-                    else if ((cep == '' || complemento == '' || uf == '' || cidade == '') && (numeroTelefone = ''))
-                    {
-                        alert("Atenção nenhum endereço e nem telefône informados! caso deseje podera apos salvar, consultar e alterar o contato para adicionar as iformações");
-                        return;
-                    }
 
                 }
 
@@ -207,16 +201,59 @@ btnSalvar.addEventListener('click', () => {
 
                 if (numeroTelefone != '')
                 {
-                    const url = 'http://127.0.0.1:8080/novotelefone';
+                    console.log('Este e o primeiro elemento de numero' + numeroTelefone);
+                    /*Begin TESTE*/
+                    const addNumber = document.querySelectorAll('#numeroTelefone');
+                    const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
 
-                    axios.post(url, novoTelefone)
-                        .then((response) => {
-                            console.log({"Message: ": "Telefône registrado"});
-                        })
-                        .catch((error) => {
-                            console.log({ "Message: ": "Algo deu errado " + error });
-                            alert("Telefône")
-                        })
+                    if (addNumber.length > 1)
+                    {
+                       const dadosTelefones = addTelefone();
+                       dadosTelefones[0].numero = numeroTelefone;
+                       dadosTelefones[0].tipo = tipoTelefone;
+                        console.log(dadosTelefones);
+                        console.log(dadosTelefones[0]);
+                        console.log(dadosTelefones[1]);
+
+                        for (var i = 0; i < dadosTelefones.length; i++) {
+
+                            if (dadosTelefones[i].numero == dadosTelefones[i + 1].numero) {
+                                alert("Atenção os numeros de telefône não podem se repetir, os numeros repetido serão removidos.");
+
+                                
+
+                                return
+                            }
+
+                            alert("Ta tudo certo!");
+                        }
+
+                       return;
+                    }
+                    else
+                    {
+                        const url = 'http://127.0.0.1:8080/novotelefone';
+
+                        axios.post(url, novoTelefone)
+                            .then((response) => {
+                                console.log({"Message: ": "Telefône registrado"});
+                            })
+                            .catch((error) => {
+                                console.log({ "Message: ": "Algo deu errado " + error });
+                                alert("Telefône")
+                            }) 
+                    }
+                    /*END TESTE*/
+                    // const url = 'http://127.0.0.1:8080/novotelefone';
+
+                    // axios.post(url, novoTelefone)
+                    //     .then((response) => {
+                    //         console.log({"Message: ": "Telefône registrado"});
+                    //     })
+                    //     .catch((error) => {
+                    //         console.log({ "Message: ": "Algo deu errado " + error });
+                    //         alert("Telefône")
+                    //     })
                 }
             }
             validaEnderecoTelefone();

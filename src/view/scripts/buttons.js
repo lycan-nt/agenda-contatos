@@ -56,45 +56,47 @@ buttonAdicionarTelefone.addEventListener('click', () => {
     optionNumeroResidencial.appendChild(textResidencial);
     selectNumero.appendChild(optionNumeroResidencial);
     novosNumeros.appendChild(selectNumero);
-
-    //TESTE ADD-----
-
-
-    const addTelefone = () => {
-        const addNumber = document.querySelectorAll('#numeroTelefone');
-        const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
     
-        const arrNumero = Array.prototype.slice.call(addNumber);
-        const arrTipo = Array.prototype.slice.call(addTipo);
-    
-        const arrTelefones = [];
 
-        for (i = 0; i < arrNumero.length; i++)
-        {
-    
-            arrTelefones.push({
-                // idContato: idContato,
-                numero: arrNumero[i].value,
-                tipo: arrTipo[i].value
-            })
-            
-        }
-
-        return arrTelefones;
-    }
-    
-    const dadosTelefones = addTelefone();
-
-    for(var i = 0; i < dadosTelefones.length; i++)
-    {
-        if (dadosTelefones[i].numero == dadosTelefones[i + 1].numero)
-        {
-            alert("Atenção os numeros de telefône não podem se repetir");
-        }
-
-        alert("Ta tudo certo!");
-    }
 });
 
 /*Fim mais telefones*/
+
+
+    //TESTE ADD-----
+
+const addTelefone = () => {
+    const addNumber = document.querySelectorAll('#numeroTelefone');
+    const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
+
+    const arrNumero = Array.prototype.slice.call(addNumber);
+    const arrTipo = Array.prototype.slice.call(addTipo);
+
+    const arrTelefones = [];
+
+    for (i = 0; i < arrNumero.length; i++)
+    {
+
+        arrTelefones.push({
+            // idContato: idContato,
+            numero: arrNumero[i].value,
+            tipo: arrTipo[i].value
+        })
+        
+    }
+
+    return arrTelefones;
+}
+
+// const dadosTelefones = addTelefone();
+
+// for(var i = 0; i < dadosTelefones.length; i++)
+// {
+//     if (dadosTelefones[i].numero == dadosTelefones[i + 1].numero)
+//     {
+//         alert("Atenção os numeros de telefône não podem se repetir");
+//     }
+
+//     alert("Ta tudo certo!");
+// }
 
