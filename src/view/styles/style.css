@@ -1,3 +1,4 @@
+
 :root {
     --primary-color: #E0E3E3;
     --secundary--color: #202363;
@@ -236,6 +237,10 @@ select.tipoTelefone{
     position: sticky;
     top: 0;
 }
+
+.listagem .campos-tabela .table tr.selecionado td{
+    background-color: #aff7ff;
+  }
 
 .listagem .campos-tabela .table-hover > tbody > tr:hover {
     background-color: var(--secundary--color);

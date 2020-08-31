@@ -284,6 +284,7 @@ btnSalvar.addEventListener('click', () => {
             validaEnderecoTelefone();
             
             alert("Novo contato criado com sucesso!");
+            recuperaDados();
         })
         .catch((error) => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })

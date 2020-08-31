@@ -65,8 +65,4 @@ document.querySelector(".buscar").addEventListener('keyup', () => {
    }
 });
 
-
-
-
-
-
+/*-------------------------------------Fim Script--------------------------------------*/
