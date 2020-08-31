@@ -259,3 +259,8 @@ select.tipoTelefone{
     border-radius: 4px;
 }
 
+/*-----Trabalhando com os campos da tabela*/
+#listagemTable tr.selecionado td{
+    background-color: var(--button-color);
+}
+

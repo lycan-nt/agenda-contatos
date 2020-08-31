@@ -66,3 +66,109 @@ document.querySelector(".buscar").addEventListener('keyup', () => {
 });
 
 /*-------------------------------------Fim Script--------------------------------------*/
+
+/*Selecionando e pegando campos da tabela*/
+const tabelaHTML = document.getElementById('listagemTable');
+tabelaHTML.addEventListener('click', selecionarLinha );
+
+function selecionarLinha() {
+    const tabela = document.getElementById('listagemTable');
+    const linhas = tabela.getElementsByTagName('tr');
+
+    for (let i = 0; i < linhas.length; i++)
+    {
+        const linha = linhas[i];
+
+        linha.addEventListener('click', function() {
+            linhaSelecionada(this, false);
+        })
+    }
+
+    function linhaSelecionada(linha) {
+        const linhas = linha.parentElement.getElementsByTagName('tr');
+
+        for (let i = 0; i < linhas.length; i++)
+        {
+            const linha_ = linhas[i];
+
+            linha_.classList.remove("selecionado");
+        }
+
+        linha.classList.toggle("selecionado");
+
+        const selecao = tabelaHTML.getElementsByClassName("selecionado");
+
+        var id = "";
+
+        for (let i = 0; i < selecao.length; i++)
+        {
+            var selecionado = selecao[i];
+            selecionado = selecionado.getElementsByTagName("td");
+
+            id = selecionado[0].innerHTML;
+
+            
+        }
+
+        console.log(id);
+        //Chamada GET para carregar os dados no menu esquerdo
+        const url = `http://127.0.0.1:8080/contato/${id}`;
+
+        axios.get(url)
+            .then(({ data }) => {
+                const inputNascimento = document.querySelector('#data');
+                const inputNome = document.querySelector('.input-nome');
+                const inputSobreNome = document.querySelector('.input-sobrenome');
+                const inputEmail = document.querySelector('.input-email');
+
+                inputNascimento.value = data.nascimento;
+                inputNome.value = data.nome;
+                inputSobreNome.value = data.sobrenome;
+                inputEmail.value = data.email;
+
+                if (data.enderecos.length > 0)
+                {
+
+                    for( let i = 0; i < data.enderecos.length; i++)
+                    {
+                        const idEndereco = data.enderecos[i];
+                        const urlEnd = `http://127.0.0.1:8080/consultarendereco/${idEndereco}/`;
+
+                        axios.get(urlEnd)
+                        .then(({ data }) => {
+                            console.log(data);
+                            const inputLogradouro = document.querySelector("#logradouro");
+                            const inputNumero = document.querySelector("#numero");
+                            const inputBairro = document.querySelector("#bairro");
+                            const inputTipo = document.querySelector("select[name=tipo]");
+                            const inputCep = document.querySelector("#cep");
+                            const inputComplemento = document.querySelector("#complemento");
+                            const inputUf = document.querySelector("select[name=uf]");
+                            const inputCidade = document.querySelector("select[name=cidade]");
+
+                            inputLogradouro.value = data.logradouro;
+                            inputNumero.value = data.numero;
+                            inputBairro.value = data.bairro;
+                            inputTipo.value = data.tipo;
+                            inputCep.value = data.cep;
+                            inputComplemento.value = data.complemento;
+                            inputUf.value = data.uf;
+                            inputCidade.innerHTML += `<option selected value="${data.cidade}">${data.cidade}</option>`
+                            //inputCidade.value = data.cidade;
+
+                        })
+                        .catch((error) => {
+                            console.log(`Não foi possivel carregar os dados obtidos na tabela: ${error}`)
+                        })
+
+                    }
+
+ 
+                }
+
+            })
+            .catch((error) => {
+                console.log(`Não foi possivel carregar os dados obtidos na tabela: ${error}`)
+            })
+    }
+}

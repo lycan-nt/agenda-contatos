@@ -54,8 +54,6 @@ exports.contato = (req, res) => {
 
     axios.get(url)
         .then((response) => {
-            console.log(response);
-
             res.send(response.data);
         })
         .catch((error) => {
