@@ -3,10 +3,12 @@
     
 <img src='https://github.com/lycan-nt/agenda-contatos/blob/master/Agenda-Tivicpng'>
 
-## Algumas das funcionalidade no momento
+## Algumas das funcionalidades no momento
     - Cadastrar contatos com todos os dados e com diversas regras de validação para evitar erros por parte do usuário
-    - Na parte de cadastro de Endereço o campo UF e Cidade se comunicam com um API do IBGE fazendo com que o usuário não precise digitar esses campos e possa           selecioná los. 
-    - No campo de cadastro de telefone existe um botão adicionar mais números que faz uma manipulação da dom criando novos campos de números para preencher e no          momento de salvar os dados o sistema verifica se o número de telefone está repetido avisa e remove os repetidos cadastrando apenas os corretos 
+    - Na parte de cadastro de Endereço o campo UF e Cidade se comunicam com um API do IBGE fazendo com que o usuário não precise digitar esses campos e possa 
+    selecioná los. 
+    - No campo de cadastro de telefone existe um botão adicionar mais números que faz uma manipulação da dom criando novos campos de números para preencher e no
+    momento de salvar os dados o sistema verifica se o número de telefone está repetido avisa e remove os repetidos cadastrando apenas os corretos 
     - Todos os contatos aparecem em uma tabela listada do lado direito e ao adicionar um novo contato ele e listado também
     - Existe um campo de busca onde e possível digitar o nome e ele será filtrado
     
@@ -22,7 +24,7 @@
  ## Expecificações tecnicas
       Construido com: NodeJS,html/css/javascript/ bootstrap/ express
       Tentei usar o maximo da arquitetura MVC e clean code
-      Projeto criando pensando na armonia visual e responsividade com as diferentes telas deskitops 
+      Projeto criando pensando na armonia visual e responsividade com as diferentes telas desktop
  
  ## OBS: 
     Infelizmente não consegui a tempo implementar a edição e exclusão de contato toda a parte de CRUD funciona
