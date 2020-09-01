@@ -12,7 +12,7 @@
         inputUf.value = '';
         inputCidade.value = '';
         inputBairro.value = '';
-    
+
         inputNumeroTelefone.value = '';
         inputTipoTelefone.value = '';
     }

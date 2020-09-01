@@ -28,6 +28,7 @@ btnNovo.addEventListener('click', () => {
     event.preventDefault();
 
     limparCampos();
+    limparNumeros();
 
     inputNascimento.disabled = false;
     inputNome.disabled = false;
