@@ -1,3 +1,46 @@
+    //Limpando Campos
+    const limparCampos = () => {
+        inputNome.value = ''
+        inputSobreNome.value = ''
+        inputNascimento.value = ''
+        inputEmail.value = ''
+    
+        inputLogradouro.value = '';
+        inputNumero.value = '';;
+        inputCep.value = '';
+        inputComplemento.value = '';
+        inputUf.value = '';
+        inputCidade.value = '';
+        inputBairro.value = '';
+    
+        inputNumeroTelefone.value = '';
+        inputTipoTelefone.value = '';
+    }
+
+    //Desabilitando Campos
+    const desabilitarCampos = () => {
+        inputNascimento.disabled = true;
+        inputNome.disabled = true;
+        inputSobreNome.disabled = true;
+        inputEmail.disabled = true;
+        btnSalvar.disabled = true;
+        buttonAdicionarTelefone.disabled = true;
+    
+        inputLogradouro.disabled = true;
+        inputNumero.disabled = true;
+        inputBairro.disabled = true;
+        inputTipo.disabled = true;
+        inputCep.disabled = true;
+        inputComplemento.disabled = true;
+        inputUf.disabled = true;
+        inputCidade.disabled = true;
+    
+        inputNumeroTelefone.disabled = true;
+        inputTipoTelefone.disabled = true;
+    
+        tabCadastro.checked = true;
+    }
+
 
 /*Adicionar campos para inserir mais telefônes*/
 const buttonAdicionarTelefone = document.querySelector('.adicionarmais');

@@ -30,6 +30,6 @@ route.post('/novotelefone', controller.novoTelefone);
 
 route.put('/edittelefone/:id', controller.editTelefone);
 
-route.get('/concultatelefone/:id', controller.consultaTelefone);
+route.get('/consultatelefone/:id', controller.consultaTelefone);
 
 module.exports = route;

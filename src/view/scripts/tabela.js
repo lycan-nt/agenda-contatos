@@ -114,8 +114,10 @@ function selecionarLinha() {
         //Chamada GET para carregar os dados no menu esquerdo
         const url = `http://127.0.0.1:8080/contato/${id}`;
 
+        //Dados Pessoa
         axios.get(url)
             .then(({ data }) => {
+
                 const inputNascimento = document.querySelector('#data');
                 const inputNome = document.querySelector('.input-nome');
                 const inputSobreNome = document.querySelector('.input-sobrenome');
@@ -126,8 +128,18 @@ function selecionarLinha() {
                 inputSobreNome.value = data.sobrenome;
                 inputEmail.value = data.email;
 
+                //Dados Endereço da pessoa
                 if (data.enderecos.length > 0)
                 {
+ 
+                    const inputLogradouro = document.querySelector("#logradouro");
+                    const inputNumero = document.querySelector("#numero");
+                    const inputBairro = document.querySelector("#bairro");
+                    const inputTipo = document.querySelector("select[name=tipo]");
+                    const inputCep = document.querySelector("#cep");
+                    const inputComplemento = document.querySelector("#complemento");
+                    const inputUf = document.querySelector("select[name=uf]");
+                    const inputCidade = document.querySelector("select[name=cidade]");
 
                     for( let i = 0; i < data.enderecos.length; i++)
                     {
@@ -136,15 +148,6 @@ function selecionarLinha() {
 
                         axios.get(urlEnd)
                         .then(({ data }) => {
-                            console.log(data);
-                            const inputLogradouro = document.querySelector("#logradouro");
-                            const inputNumero = document.querySelector("#numero");
-                            const inputBairro = document.querySelector("#bairro");
-                            const inputTipo = document.querySelector("select[name=tipo]");
-                            const inputCep = document.querySelector("#cep");
-                            const inputComplemento = document.querySelector("#complemento");
-                            const inputUf = document.querySelector("select[name=uf]");
-                            const inputCidade = document.querySelector("select[name=cidade]");
 
                             inputLogradouro.value = data.logradouro;
                             inputNumero.value = data.numero;
@@ -153,8 +156,7 @@ function selecionarLinha() {
                             inputCep.value = data.cep;
                             inputComplemento.value = data.complemento;
                             inputUf.value = data.uf;
-                            inputCidade.innerHTML += `<option selected value="${data.cidade}">${data.cidade}</option>`
-                            //inputCidade.value = data.cidade;
+                            inputCidade.innerHTML += `<option selected value="${data.cidade}">${data.cidade}</option>`                          
 
                         })
                         .catch((error) => {
@@ -165,6 +167,29 @@ function selecionarLinha() {
 
  
                 }
+
+                //Dados Telefone da pessoa
+                if (data.telefones.length > 0) {
+
+                    const inputNumeroTelefone = document.querySelector("#numeroTelefone");
+                    const inputTipoTelefone = document.querySelector("select[name=tipoTelefone]");
+
+                    for (let i = 0; i < data.telefones.length; i++) {
+                        const idTelefone = data.telefones[0];
+                        const urlTelefone = `http://127.0.0.1:8080/consultatelefone/${idTelefone}`
+
+                        axios(urlTelefone)
+                            .then(({ data }) => {
+                                console.log(data);
+                                inputNumeroTelefone.value = data.numero;
+                                inputTipoTelefone.value = data.tipo;
+                            })
+                            .catch((error) => {
+                                console.log(`Não foi possivel carregar os dados obtidos na tabela: ${error}`)
+                            })
+                    }
+
+                }  
 
             })
             .catch((error) => {

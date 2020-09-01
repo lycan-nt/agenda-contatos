@@ -3,8 +3,6 @@
 const tabCadastro = document.querySelector("#tb1");
 const btnNovo = document.querySelector(".novo");
 const btnSalvar = document.querySelector(".salvar");
-// const buttonAdicionarTelefone = document.querySelector('.adicionarmais');
-
 
 //Pessoa
 const inputNascimento = document.querySelector('#data');
@@ -27,6 +25,10 @@ const inputNumeroTelefone = document.querySelector("#numeroTelefone");
 const inputTipoTelefone = document.querySelector("select[name=tipoTelefone]");
 
 btnNovo.addEventListener('click', () => {
+    event.preventDefault();
+
+    limparCampos();
+
     inputNascimento.disabled = false;
     inputNome.disabled = false;
     inputSobreNome.disabled = false;
@@ -44,6 +46,8 @@ btnNovo.addEventListener('click', () => {
 
     inputNumeroTelefone.disabled = false;
     inputTipoTelefone.disabled = false;
+
+
 })
 
 //Persistindo os dados
@@ -202,7 +206,7 @@ btnSalvar.addEventListener('click', () => {
                 if (numeroTelefone != '')
                 {
                     const url = 'http://127.0.0.1:8080/novotelefone';
-                    /*Begin TESTE*/
+
                     const addNumber = document.querySelectorAll('#numeroTelefone');
                     const addTipo = document.querySelectorAll('select[name=tipoTelefone]');
 
@@ -268,17 +272,7 @@ btnSalvar.addEventListener('click', () => {
 
                             recuperaDados()
                     }
-                    /*END TESTE*/
-                    // const url = 'http://127.0.0.1:8080/novotelefone';
 
-                    // axios.post(url, novoTelefone)
-                    //     .then((response) => {
-                    //         console.log({"Message: ": "Telefône registrado"});
-                    //     })
-                    //     .catch((error) => {
-                    //         console.log({ "Message: ": "Algo deu errado " + error });
-                    //         alert("Telefône")
-                    //     })
                 }
             }
             validaEnderecoTelefone();
@@ -290,43 +284,10 @@ btnSalvar.addEventListener('click', () => {
            console.log({ "Message: ": "Desulpe algo deu errado" + error })
         });
 
-    //Limpando e desabilitando campos
-    inputNome.value = ''
-    inputSobreNome.value = ''
-    inputNascimento.value = ''
-    inputEmail.value = ''
 
-    inputLogradouro.value = '';
-    inputNumero.value = '';;
-    inputCep.value = '';
-    inputComplemento.value = '';
-    inputUf.value = '';
-    inputCidade.value = '';
-    inputBairro.value = '';
+    limparCampos();
 
-    inputNumeroTelefone.value = '';
-    inputTipoTelefone.value = '';
-
-    inputNascimento.disabled = true;
-    inputNome.disabled = true;
-    inputSobreNome.disabled = true;
-    inputEmail.disabled = true;
-    btnSalvar.disabled = true;
-    buttonAdicionarTelefone.disabled = true;
-
-    inputLogradouro.disabled = true;
-    inputNumero.disabled = true;
-    inputBairro.disabled = true;
-    inputTipo.disabled = true;
-    inputCep.disabled = true;
-    inputComplemento.disabled = true;
-    inputUf.disabled = true;
-    inputCidade.disabled = true;
-
-    inputNumeroTelefone.disabled = true;
-    inputTipoTelefone.disabled = true;
-
-    tabCadastro.checked = true;
+    desabilitarCampos();
 
     }
     valida_form();
