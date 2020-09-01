@@ -44,7 +44,7 @@
 
 /*Adicionar campos para inserir mais telefônes*/
 const buttonAdicionarTelefone = document.querySelector('.adicionarmais');
-//const novosNumeros = document.querySelector('.novos-numeros');
+const novosNumeros = document.querySelector('.novos-numeros');
 
 const addNumeros = () => {
     const novosNumeros = document.querySelector('.novos-numeros');

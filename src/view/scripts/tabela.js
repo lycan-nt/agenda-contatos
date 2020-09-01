@@ -67,7 +67,7 @@ document.querySelector(".buscar").addEventListener('keyup', () => {
 
 /*-------------------------------------Fim Script--------------------------------------*/
 
-/*Selecionando e pegando campos da tabela*/
+/*---------------------------------Selecionando e pegando campos da tabela------------------------*/
 const tabelaHTML = document.getElementById('listagemTable');
 tabelaHTML.addEventListener('click', selecionarLinha );
 
@@ -75,6 +75,10 @@ function selecionarLinha() {
     const tabela = document.getElementById('listagemTable');
     const linhas = tabela.getElementsByTagName('tr');
 
+    limparCampos();
+    desabilitarCampos();
+    limparNumeros();
+    
     for (let i = 0; i < linhas.length; i++)
     {
         const linha = linhas[i];
@@ -164,24 +168,32 @@ function selecionarLinha() {
                         })
 
                     }
-
  
                 }
 
                 //Dados Telefone da pessoa
                 if (data.telefones.length > 0) {
 
-                    const inputNumeroTelefone = document.querySelector("#numeroTelefone");
-                    const inputTipoTelefone = document.querySelector("select[name=tipoTelefone]");
-
                     if (data.telefones.length > 1)
                     {
-                        let = qtdNumeros =  data.telefones.length - 1
-                        for (let i = 0; i < qtdNumeros ; i++)
+                        limparNumeros();
+                        console.log(data.telefones);
+                        let qtdNumeros = 0;
+                        qtdNumeros =  data.telefones.length - 1;
+                        for (let i = 0; i < qtdNumeros; i++)
                         {
+                            if (i == qtdNumeros)
+                            {
+                                return
+                            }
+                                
                             addNumeros();
                         }
+
                     }
+
+                    const inputNumeroTelefone = document.querySelectorAll("#numeroTelefone");
+                    const inputTipoTelefone = document.querySelectorAll("select[name=tipoTelefone]");
 
                     for (let i = 0; i < data.telefones.length; i++) {
                         const idTelefone = data.telefones[i];
@@ -190,8 +202,11 @@ function selecionarLinha() {
                         axios(urlTelefone)
                             .then(({ data }) => {
                                 console.log(data);
-                                inputNumeroTelefone.value = data.numero;
-                                inputTipoTelefone.value = data.tipo;
+                                inputNumeroTelefone[i].value = data.numero;
+                                inputNumeroTelefone[i].disabled = true;
+
+                                inputTipoTelefone[i].value = data.tipo;
+                                inputTipoTelefone[i].disabled = true;
                             })
                             .catch((error) => {
                                 console.log(`Não foi possivel carregar os dados obtidos na tabela: ${error}`)
@@ -206,3 +221,5 @@ function selecionarLinha() {
             })
     }
 }
+
+/*-------------------------------------Fim Script--------------------------------------*/
