@@ -174,8 +174,17 @@ function selecionarLinha() {
                     const inputNumeroTelefone = document.querySelector("#numeroTelefone");
                     const inputTipoTelefone = document.querySelector("select[name=tipoTelefone]");
 
+                    if (data.telefones.length > 1)
+                    {
+                        let = qtdNumeros =  data.telefones.length - 1
+                        for (let i = 0; i < qtdNumeros ; i++)
+                        {
+                            addNumeros();
+                        }
+                    }
+
                     for (let i = 0; i < data.telefones.length; i++) {
-                        const idTelefone = data.telefones[0];
+                        const idTelefone = data.telefones[i];
                         const urlTelefone = `http://127.0.0.1:8080/consultatelefone/${idTelefone}`
 
                         axios(urlTelefone)

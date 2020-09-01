@@ -44,10 +44,10 @@
 
 /*Adicionar campos para inserir mais telefônes*/
 const buttonAdicionarTelefone = document.querySelector('.adicionarmais');
-const novosNumeros = document.querySelector('.novos-numeros');
+//const novosNumeros = document.querySelector('.novos-numeros');
 
-buttonAdicionarTelefone.addEventListener('click', () => {
-    event.preventDefault();
+const addNumeros = () => {
+    const novosNumeros = document.querySelector('.novos-numeros');
 
     const hr = document.createElement('hr');
     hr.setAttribute('class', 'hr-numeros');
@@ -98,6 +98,12 @@ buttonAdicionarTelefone.addEventListener('click', () => {
     optionNumeroResidencial.appendChild(textResidencial);
     selectNumero.appendChild(optionNumeroResidencial);
     novosNumeros.appendChild(selectNumero);
+}
+
+buttonAdicionarTelefone.addEventListener('click', (valorTeste) => {
+    event.preventDefault();
+
+    addNumeros();
     
 
 });
