@@ -72,6 +72,8 @@ const tabelaHTML = document.getElementById('listagemTable');
 tabelaHTML.addEventListener('click', selecionarLinha );
 
 function selecionarLinha() {
+    event.preventDefault();
+
     const tabela = document.getElementById('listagemTable');
     const linhas = tabela.getElementsByTagName('tr');
 
@@ -114,9 +116,12 @@ function selecionarLinha() {
             
         }
 
-        console.log(id);
+        idPessoa = id;
+
+       
+
         //Chamada GET para carregar os dados no menu esquerdo
-        const url = `http://127.0.0.1:8080/contato/${id}`;
+        const url = `http://127.0.0.1:8080/contato/${idPessoa}`;
 
         //Dados Pessoa
         axios.get(url)
@@ -177,7 +182,6 @@ function selecionarLinha() {
                     if (data.telefones.length > 1)
                     {
                         limparNumeros();
-                        console.log(data.telefones);
                         let qtdNumeros = 0;
                         qtdNumeros =  data.telefones.length - 1;
                         for (let i = 0; i < qtdNumeros; i++)
@@ -201,7 +205,7 @@ function selecionarLinha() {
 
                         axios(urlTelefone)
                             .then(({ data }) => {
-                                console.log(data);
+                                
                                 inputNumeroTelefone[i].value = data.numero;
                                 inputNumeroTelefone[i].disabled = true;
 
@@ -214,6 +218,45 @@ function selecionarLinha() {
                     }
 
                 }  
+
+                //Habilitar os botões para editar/deletar
+                const editDelete = document.querySelector('.edit-delete');
+                const novo = document.querySelector('.novo');
+                const cacelarEdit = document.querySelector('.cancelar-edit');
+                const salvar = document.querySelector('.salvar');
+                const salvarEdit = document.querySelector('.salvar-edit');
+
+                editDelete.style.display = 'block';
+
+                editDelete.addEventListener('click', () => {
+ 
+                    novo.style.display = 'none';
+
+                    cacelarEdit.style.display = 'block';
+
+                    salvar.style.display = 'none';
+
+                    salvarEdit.style.display = 'block';
+
+                    habilitarCampos();
+                })
+
+                cacelarEdit.addEventListener('click', () => {
+                    event.preventDefault();
+
+                    salvar.style.display = 'block';
+                    novo.style.display = 'block';
+
+                    editDelete.style.display = 'none';
+                    salvarEdit.style.display = 'none';
+
+
+                    cacelarEdit.style.display = 'none';
+
+                 
+                    desabilitarCampos();
+
+                })
 
             })
             .catch((error) => {

@@ -57,7 +57,6 @@ body {
 
 .menu .hr-topo{
     border: solid 2px black;
-    /* margin-top: 10px; */
 }
 
 .nav-cadastro {
@@ -192,11 +191,63 @@ select.tipoTelefone{
     margin: 2px;
 }
 
+.menu .buttons 
+.cancelar,
+.cancelar-edit{
+    background-color: var(--button-color);
+}
+
+.menu .buttons .cancelar:hover {
+    background-color: red;
+}
+
+.menu .buttons .cancelar-edit:hover {
+    background-color: red;
+}
 
 .menu .buttons button:hover {
     background-color: var(--button-color);
     transition: 1s;
     cursor: pointer;    
+}
+
+/*Botes editar e excluir*/
+.menu .edit-delete {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 33%;
+    display: none;
+}
+
+.menu .edit-delete .editBotao{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+
+}
+
+.menu .edit-delete .editBotao:hover{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+
+.menu .edit-delete .deleteBotao{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin-left: 25px;
+}
+
+.menu .edit-delete .deleteBotao:hover{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.5s;
+
 }
 
 /*-----Fim do menu principal-----*/

@@ -30,23 +30,23 @@ btnNovo.addEventListener('click', () => {
     limparCampos();
     limparNumeros();
 
-    inputNascimento.disabled = false;
-    inputNome.disabled = false;
-    inputSobreNome.disabled = false;
-    inputEmail.disabled = false;
-    btnSalvar.disabled = false;
-    buttonAdicionarTelefone.disabled = false;
+    btnNovo.style.display = 'none';
 
-    inputLogradouro.disabled = false;
-    inputNumero.disabled = false;
-    inputBairro.disabled = false;
-    inputTipo.disabled = false;
-    inputCep.disabled = false;
-    inputComplemento.disabled = false;
-    inputUf.disabled = false;
+    const cacelar = document.querySelector('.cancelar');
+    cacelar.style.display = 'block';
 
-    inputNumeroTelefone.disabled = false;
-    inputTipoTelefone.disabled = false;
+    cacelar.addEventListener('click', () => {
+        event.preventDefault();
+
+        cacelar.style.display = 'none';
+        btnNovo.style.display = 'block';
+
+        limparCampos();
+        limparNumeros();
+        desabilitarCampos();
+    })
+
+    habilitarCampos();
 
 
 })

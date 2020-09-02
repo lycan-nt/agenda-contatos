@@ -140,3 +140,23 @@ const limparNumeros = () => {
     novosNumeros.innerHTML = ''
 }
 
+
+const habilitarCampos = () => {
+    inputNascimento.disabled = false;
+    inputNome.disabled = false;
+    inputSobreNome.disabled = false;
+    inputEmail.disabled = false;
+    btnSalvar.disabled = false;
+    buttonAdicionarTelefone.disabled = false;
+
+    inputLogradouro.disabled = false;
+    inputNumero.disabled = false;
+    inputBairro.disabled = false;
+    inputTipo.disabled = false;
+    inputCep.disabled = false;
+    inputComplemento.disabled = false;
+    inputUf.disabled = false;
+
+    inputNumeroTelefone.disabled = false;
+    inputTipoTelefone.disabled = false;
+}

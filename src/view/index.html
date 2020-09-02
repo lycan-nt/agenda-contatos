@@ -34,6 +34,12 @@
                             <input type="radio" name="tabs" class="rd_tabs" id="tb1" checked>
                             <label id="label-tab" for="tb1">Cadastro</label>
                             <div class="content">
+
+                                <div class='edit-delete'>
+                                    <img class='editBotao' src='./img/edit.jpg'/>
+                                    <img class='deleteBotao' src='./img/delete.jpg'/>
+                                </div>
+
                                 <article>
                                     <label>Nascimento</label> <br>
                                     <input id="data" type="date" name="data-nascimento" disabled="true" required> <br><br>
@@ -119,9 +125,15 @@
                     </ul>
 
                     <div class="buttons">
+                       
+                        <button class="cancelar" style="display:none">cancelar</button>
+                        <button class="cancelar-edit" style="display:none">cancelar</button>
+
                         <button class="novo">Novo</button>
 
                         <button type="submit" class="salvar" disabled="true">Salvar</button>
+                        
+                        <button type="submit" class="salvar-edit" style="display:none">Salvar</button>
                     </div>
                 </form>
 
