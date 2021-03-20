@@ -26,13 +26,6 @@
       Tentei usar o maximo da arquitetura MVC e clean code
       Projeto criando pensando na armonia visual e responsividade com as diferentes telas desktop
  
- ## OBS: 
-    Infelizmente não consegui a tempo implementar a edição e exclusão de contato toda a parte de CRUD funciona
-    no back end da aplicação porem falto a implementação dessa parte no front
-    assim como tambem não tive tempo de implantar um versão para aparelho movel 
-    
- 
- 
  ## Desenvolvido por 
     Felipe D. Santos
  
