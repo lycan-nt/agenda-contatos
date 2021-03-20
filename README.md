@@ -1,5 +1,5 @@
 # agenda-contatos
-    Um projeto de cadastro e gerenciamento de contatos criado para o processo seletivo da Tivic.
+    Um projeto de cadastro e gerenciamento de contatos.
     
 <img src='https://github.com/lycan-nt/agenda-contatos/blob/master/Agenda-Tivicpng'>
 
@@ -28,6 +28,3 @@
  
  ## Desenvolvido por 
     Felipe D. Santos
- 
- ## Agradecimentos
-      Meus agradecimentos a Tivic e equipe pela oportunidade de participar do processo seletivo
